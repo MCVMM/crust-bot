@@ -1,5 +1,6 @@
 use serenity::{
     model::channel::{Message, Reaction, ReactionType},
+    model::id::EmojiId,
     prelude::*,
 };
 
@@ -67,10 +68,10 @@ impl EventHandler for Handler {
         if *msg.channel_id.as_u64() != GAMES_SUGGESTION_CHANNEL_ID {
             return;
         }
-        if let Err(why) = msg.react(&ctx, 719241198681980939) {
+        if let Err(why) = msg.react(&ctx, EmojiId(719241198681980939)) {
             println!("{:?}", why);
         }
-        if let Err(why) = msg.react(&ctx, 719241198723924048) {
+        if let Err(why) = msg.react(&ctx, EmojiId(719241198723924048)) {
             println!("{:?}", why);
         }
     }
