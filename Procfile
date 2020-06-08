@@ -1,1 +1,1 @@
-web: ./target/release/crust-bot
+worker: ./target/release/crust-bot
