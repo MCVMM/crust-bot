@@ -67,10 +67,10 @@ impl EventHandler for Handler {
         if *msg.channel_id.as_u64() != GAMES_SUGGESTION_CHANNEL_ID {
             return;
         }
-        if let Err(why) = msg.react(&ctx, ":YES:") {
+        if let Err(why) = msg.react(&ctx, 719241198681980939) {
             println!("{:?}", why);
         }
-        if let Err(why) = msg.react(&ctx, ":NO:") {
+        if let Err(why) = msg.react(&ctx, 719241198723924048) {
             println!("{:?}", why);
         }
     }
