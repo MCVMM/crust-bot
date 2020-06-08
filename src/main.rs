@@ -47,12 +47,13 @@ struct Handler;
 
 impl EventHandler for Handler {
     fn reaction_add(&self, ctx: Context, reaction: Reaction) {
-        println!("Reaction: {:?}", reaction);
         if let ReactionType::Unicode(emoji) = &reaction.emoji {
             if let Some((msg, count)) = emoji_count(&ctx, &reaction, emoji) {
-                println!("{:?}, {}", msg, count);
                 if count == 1 {
-                    msg.pin(ctx).unwrap_or(());
+                    println!("Pinning!");
+                    if let Err(why) = msg.pin(ctx) {
+                        println!("{:?}", why);
+                    }
                 }
             }
         }
@@ -61,8 +62,11 @@ impl EventHandler for Handler {
     fn reaction_remove(&self, ctx: Context, reaction: Reaction) {
         if let ReactionType::Unicode(emoji) = &reaction.emoji {
             if let Some((msg, count)) = emoji_count(&ctx, &reaction, emoji) {
-                if count == 1 {
-                    msg.unpin(ctx).unwrap_or(());
+                if count == 0 {
+                    println!("Unpinning!");
+                    if let Err(why) = msg.unpin(ctx) {
+                        println!("{:?}", why);
+                    }
                 }
             }
         }
