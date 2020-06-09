@@ -21,7 +21,7 @@ fn meminfo(ctx: &mut Context, msg: &Message) -> CommandResult {
     use procinfo::pid::statm_self;
 
     match statm_self() {
-        Ok(stats) => msg.reply(ctx, format!("Total memory used: {}", stats.size))?,
+        Ok(stats) => msg.reply(ctx, format!("Total memory used: {:?}", stats))?,
         Err(why) => msg.reply(ctx, format!("Meminfo error: {:?}", why))?,
     };
     Ok(())
