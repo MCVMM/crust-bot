@@ -63,7 +63,7 @@ impl EventHandler for Handler {
     }
 
     fn message(&self, ctx: Context, msg: Message) {
-        println!("channel id: {}, msg: {}", msg.channel_id, msg.content);
+        println!("{}: {}", msg.author.name, msg.content);
         if *msg.channel_id.as_u64() != GAMES_SUGGESTION_CHANNEL_ID {
             return;
         }
