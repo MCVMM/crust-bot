@@ -64,28 +64,28 @@ impl EventHandler for Handler {
 
     fn message(&self, ctx: Context, msg: Message) {
         println!("{}|{}: {}", msg.channel_id, msg.author.name, msg.content);
-        if *msg.channel_id.as_u64() != GAMES_SUGGESTION_CHANNEL_ID {
-            return;
-        }
-        if let Err(why) = msg.react(
-            &ctx,
-            ReactionType::Custom {
-                animated: false,
-                id: EmojiId(719241198681980939),
-                name: Some("YES".to_string()),
-            },
-        ) {
-            println!("{:?}", why);
-        }
-        if let Err(why) = msg.react(
-            &ctx,
-            ReactionType::Custom {
-                animated: false,
-                id: EmojiId(719241198723924048),
-                name: Some("NO".to_string()),
-            },
-        ) {
-            println!("{:?}", why);
-        }
+        //if *msg.channel_id.as_u64() != GAMES_SUGGESTION_CHANNEL_ID {
+        //    return;
+        //}
+        //if let Err(why) = msg.react(
+        //    &ctx,
+        //    ReactionType::Custom {
+        //        animated: false,
+        //        id: EmojiId(719241198681980939),
+        //        name: Some("YES".to_string()),
+        //    },
+        //) {
+        //    println!("{:?}", why);
+        //}
+        //if let Err(why) = msg.react(
+        //    &ctx,
+        //    ReactionType::Custom {
+        //        animated: false,
+        //        id: EmojiId(719241198723924048),
+        //        name: Some("NO".to_string()),
+        //    },
+        //) {
+        //    println!("{:?}", why);
+        //}
     }
 }
